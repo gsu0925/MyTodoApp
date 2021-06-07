@@ -1,9 +1,6 @@
 package com.springboot.mytodoapp.ApiResponse;
 
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -21,5 +18,4 @@ public abstract class ApiResponse<T> {
     // response마다 errors를 추가하지 않아도 된다.
     @NonNull private T data;
     private List<String> errors;
-
 }
