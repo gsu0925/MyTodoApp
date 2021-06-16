@@ -50,4 +50,19 @@ public class ToDoItemController {
         return ToDoItemAdapter.toToDoItemResponse(toDoItem, errors);
     }
 
+    @RequestMapping(method = RequestMethod.PUT)
+    public @ResponseBody ToDoItemResponse update(@RequestBody final ToDoItemRequest toDoItemRequest) {
+        List<String> errors = new ArrayList<>();
+        ToDoItem toDoItem = ToDoItemAdapter.toToDoItem(toDoItemRequest);
+        System.out.println("수정: " + toDoItemRequest.getTitle());
+
+        try {
+            toDoItem = toDoItemService.update(toDoItem);
+        } catch (final Exception e) {
+            errors.add(e.getMessage());
+            e.printStackTrace();
+        }
+        return ToDoItemAdapter.toToDoItemResponse(toDoItem, errors);
+    }
+
 }

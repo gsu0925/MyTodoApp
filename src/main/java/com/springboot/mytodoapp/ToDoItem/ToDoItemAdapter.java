@@ -16,6 +16,7 @@ public class ToDoItemAdapter {
             return null;
         }
         return ToDoItem.builder()
+                .id(toDoItemRequest.getId()) // update할 때 반드시 필요
                 .title(toDoItemRequest.getTitle())
                 .done(toDoItemRequest.isDone())
                 .build();
